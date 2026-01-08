@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Code Memory Match - A programming language themed memory matching game">
+    <meta name="author" content="Adriatico">
+    <title>Code Memory Match | Programming Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+
+        <!-- Header -->
+        <header class="game-header">
+            <h1 class="game-title">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                Code Memory Match
+            </h1>
+            <p class="game-subtitle">Match programming language pairs!</p>
+        </header>
+
+
+        <!-- Stats Bar -->
+        <section class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-label">Time</div>
+                <div class="stat-value" id="timer">0:00</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Moves</div>
+                <div class="stat-value" id="moves">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Score</div>
+                <div class="stat-value" id="score">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Combo</div>
+                <div class="stat-value" id="combo">-</div>
+            </div>
+        </section>
+
+
+        <!-- Personal Best -->
+        <section class="personal-best">
+            <div class="best-title">Personal Best</div>
+            <div class="best-stats">
+                <div class="best-item">
+                    <span class="best-label">High Score:</span>
+                    <span class="best-value" id="high-score">0</span>
+                </div>
+                <div class="best-item">
+                    <span class="best-label">Best Time:</span>
+                    <span class="best-value" id="best-time">--:--</span>
+                </div>
+                <div class="best-item">
+                    <span class="best-label">Max Combo:</span>
+                    <span class="best-value" id="max-combo">0x</span>
+                </div>
+            </div>
+            <button class="btn-reset-small" id="reset-records-btn">Reset</button>
+        </section>
+
+
+        <!-- Combo Notification -->
+        <div id="combo-notification" class="combo-notification hidden">
+            <span id="combo-text">2x COMBO!</span>
+        </div>
+
+
+        <!-- Game Board -->
+        <main class="game-board" id="game-board"></main>
+
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn-help" id="help-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                How to Play
+            </button>
+            <button class="btn-restart" id="restart-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                </svg>
+                New Game
+            </button>
+        </div>
+
+
+        <!-- Win -->
+        <div id="win-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2 class="modal-title">You Won!</h2>
+                <div class="modal-stats">
+                    <div class="modal-stat">
+                        <div class="stat-label">Final Score</div>
+                        <div class="stat-big" id="final-score">0</div>
+                    </div>
+                    <div class="modal-stat">
+                        <div class="stat-label">Time</div>
+                        <div class="stat-med" id="final-time">0:00</div>
+                    </div>
+                    <div class="modal-stat">
+                        <div class="stat-label">Moves</div>
+                        <div class="stat-med" id="final-moves">0</div>
+                    </div>
+                </div>
+                <button class="btn-play-again" id="play-again-btn">Play Again</button>
+            </div>
+        </div>
+
+
+        <!-- Help -->
+        <div id="help-modal" class="modal hidden">
+            <div class="modal-content help-content">
+                <button class="close-btn" id="close-help-btn">×</button>
+                <h2 class="modal-title">How to Play</h2>
+
+                <h3>Objective</h3>
+                <p>Match all 8 pairs of programming language cards to win!</p>
+
+                <h3>Rules</h3>
+                <ol>
+                    <li>Click any card to flip and reveal the language</li>
+                    <li>Click a second card to find its pair</li>
+                    <li>Match = Points earned! Mismatch = Cards flip back</li>
+                    <li>Match all 8 pairs to win</li>
+                </ol>
+
+                <h3>Combo System</h3>
+                <p>Chain matches for bonus points:</p>
+                <ul>
+                    <li>1st match: 100 pts</li>
+                    <li>2x combo: 150 pts (+50)</li>
+                    <li>3x combo: 200 pts (+100)</li>
+                    <li>4x+ combo: +50 pts per level</li>
+                </ul>
+                <p class="help-note"><strong>Warning:</strong> Missing resets combo to 0!</p>
+
+                <h3>Pro Tips</h3>
+                <ul>
+                    <li>Remember card positions for longer combos</li>
+                    <li>Accuracy matters more than speed</li>
+                    <li>Beat your high score!</li>
+                </ul>
+
+                <button class="btn-start-game" id="start-game-btn">Start Playing!</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

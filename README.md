@@ -58,7 +58,9 @@ Test your memory by matching programming language pairs while racing against tim
 
 ## Play Online
 
-Visit the live demo: [https://Ceihiro.github.io/DC101_Game_Adriatico_CeihiroJazel/](https://Ceihiro.github.io/DC101_Game_Adriatico_CeihiroJazel/)
+Visit the live demo: [https://ceihiro.github.io/DC101_Game_AdriaticoCeihiroJazel/](https://ceihiro.github.io/DC101_Game_AdriaticoCeihiroJazel/)
+
+![Memory Match Game](img/game.png)
 
 ---
 
@@ -67,3 +69,4 @@ Visit the live demo: [https://Ceihiro.github.io/DC101_Game_Adriatico_CeihiroJaze
 Codynn (2025). *Build Memory Game Project | HTML CSS JavaScript Fun Game for Beginners 2025*. YouTube. 
 
 https://www.youtube.com/live/rcWBLFXH7uA
+
